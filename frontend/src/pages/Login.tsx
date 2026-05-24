@@ -47,22 +47,18 @@ const Login: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#121212] px-4">
       <div className="w-full max-w-md bg-[#1E1E1E] border border-[#2A2A2A] rounded-2xl p-6 shadow-lg space-y-6">
-        {/* Header */}
         <div className="text-center space-y-2">
           <h1 className="text-2xl font-bold text-white">Bienvenido</h1>
           <p className="text-sm text-gray-400">Inicia sesión para continuar</p>
         </div>
 
-        {/* Error */}
         {error && (
           <div className="bg-red-500/10 border border-red-500 text-red-400 text-sm p-3 rounded-lg text-center">
             {error}
           </div>
         )}
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Email */}
           <div className="flex flex-col gap-1">
             <label className="text-sm text-gray-300">Email</label>
             <div className="flex items-center bg-[#121212] border border-[#2A2A2A] rounded-lg px-3">
@@ -77,7 +73,6 @@ const Login: React.FC = () => {
             </div>
           </div>
 
-          {/* Password */}
           <div className="flex flex-col gap-1">
             <label className="text-sm text-gray-300">Contraseña</label>
             <div className="flex items-center bg-[#121212] border border-[#2A2A2A] rounded-lg px-3">
@@ -92,7 +87,6 @@ const Login: React.FC = () => {
             </div>
           </div>
 
-          {/* Button */}
           <button
             type="submit"
             disabled={loading}
@@ -102,7 +96,6 @@ const Login: React.FC = () => {
           </button>
         </form>
 
-        {/* Footer */}
         <p className="text-center text-sm text-gray-500">
           Sistema de Inventario
         </p>

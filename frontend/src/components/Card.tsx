@@ -21,7 +21,6 @@ const Card: React.FC<CardProps> = ({ title, value, icon }) => {
         min-w-[180px]
       "
     >
-      {/* ICON */}
       <div
         className="
           flex items-center justify-center
@@ -36,7 +35,6 @@ const Card: React.FC<CardProps> = ({ title, value, icon }) => {
         {icon}
       </div>
 
-      {/* TEXT */}
       <div className="flex flex-col min-w-0">
         <span className="text-xs sm:text-sm text-gray-400 ">{title}</span>
 

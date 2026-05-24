@@ -1,8 +1,5 @@
 import React from "react";
 
-/* ========================================
-   PRODUCTOS
-======================================== */
 export interface Product {
   id: number;
   name: string;
@@ -13,9 +10,6 @@ export interface Product {
   movements: Movement[];
 }
 
-/* ========================================
-   MOVIMIENTOS
-======================================== */
 export interface Movement {
   id?: number;
   productId: number;

@@ -22,7 +22,7 @@ const CreateUsersPages = () => {
   const [message, setMessage] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     setForm({
       ...form,
@@ -57,7 +57,6 @@ const CreateUsersPages = () => {
 
   return (
     <div className="w-full max-w-xl mx-auto bg-[#1E1E1E] border border-[#2A2A2A] rounded-2xl p-6 shadow-xl">
-      {/* HEADER */}
       <div className="flex items-center gap-3 mb-6">
         <div className="w-12 h-12 rounded-xl bg-[#BB86FC] flex items-center justify-center text-black text-xl">
           <FaUserPlus />
@@ -69,9 +68,7 @@ const CreateUsersPages = () => {
         </div>
       </div>
 
-      {/* FORM */}
       <form onSubmit={createUser} className="space-y-4">
-        {/* NAME */}
         <div>
           <label className="text-sm text-gray-300 mb-1 block">Nombre</label>
 
@@ -88,7 +85,6 @@ const CreateUsersPages = () => {
           </div>
         </div>
 
-        {/* EMAIL */}
         <div>
           <label className="text-sm text-gray-300 mb-1 block">Email</label>
 
@@ -105,7 +101,6 @@ const CreateUsersPages = () => {
           </div>
         </div>
 
-        {/* PASSWORD */}
         <div>
           <label className="text-sm text-gray-300 mb-1 block">Contraseña</label>
 
@@ -122,7 +117,6 @@ const CreateUsersPages = () => {
           </div>
         </div>
 
-        {/* ROLE */}
         <div>
           <label className="text-sm text-gray-300 mb-1 block">Rol</label>
 
@@ -146,7 +140,6 @@ const CreateUsersPages = () => {
           </div>
         </div>
 
-        {/* BUTTON */}
         <button
           type="submit"
           disabled={loading}
@@ -155,7 +148,6 @@ const CreateUsersPages = () => {
           {loading ? "Creando..." : "Crear Usuario"}
         </button>
 
-        {/* MESSAGE */}
         {message && (
           <Alert
             type={message.includes("correctamente") ? "success" : "error"}

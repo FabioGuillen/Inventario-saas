@@ -52,8 +52,6 @@ const Products: React.FC = () => {
 
   const [typing, setTyping] = useState(false);
 
-  /* SEARCH MEJORADO
-   */
   useEffect(() => {
     const delay = setTimeout(async () => {
       await getProductsApi(query.trim());
@@ -107,7 +105,7 @@ const Products: React.FC = () => {
       const exists = products.some(
         (p) =>
           p.name.toLowerCase().trim() === form.name.toLowerCase().trim() &&
-          p.id !== editProduct?.id
+          p.id !== editProduct?.id,
       );
 
       if (exists) {
@@ -126,7 +124,7 @@ const Products: React.FC = () => {
       }
 
       notify.success(
-        `Producto ${editProduct ? "actualizado" : "creado"} correctamente`
+        `Producto ${editProduct ? "actualizado" : "creado"} correctamente`,
       );
 
       resetForm();
@@ -150,9 +148,6 @@ const Products: React.FC = () => {
     setShowModal(true);
   };
 
-  /* 
-     TABLE
-   */
   const columns: Column<Product>[] = [
     {
       header: "Nombre",
@@ -290,8 +285,8 @@ const Products: React.FC = () => {
               {loading
                 ? "Guardando..."
                 : editProduct
-                ? "Actualizar"
-                : "Crear Producto"}
+                  ? "Actualizar"
+                  : "Crear Producto"}
             </button>
           </form>
         </Modal>

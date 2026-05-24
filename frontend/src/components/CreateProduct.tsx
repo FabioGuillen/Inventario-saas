@@ -15,7 +15,7 @@ export const CreateProduct = () => {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     let value = e.target.value;
 
@@ -59,15 +59,15 @@ export const CreateProduct = () => {
   };
 
   return (
-    <div className="bg-[#121212] p-6 rounded-xl text-white max-w-md">
+    <div className="bg-[#ff2929] p-6 rounded-xl text-white max-w-md">
       {info && <Alert message={info} type="success" />}
 
       <h2 className="text-xl font-bold mb-4">Crear Producto</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Nombre */}
-        <div className="flex flex-col gap-1">
-          <label htmlFor="name" className="text-sm text-gray-300">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="name" className="text-sm font-medium text-gray-400">
             Nombre del Producto
           </label>
 
@@ -77,13 +77,17 @@ export const CreateProduct = () => {
             value={form.name}
             onChange={handleChange}
             placeholder="Ej: Mouse Gamer"
-            className="w-full p-2 rounded bg-[#1E1E1E]"
+            required
+            className="w-full p-3 rounded-lg bg-[#1E1E1E] border border-[#2A2A2A] focus:outline-none focus:ring-2 focus:ring-[#BB86FC]"
           />
         </div>
 
         {/* Categoría */}
-        <div className="flex flex-col gap-1">
-          <label htmlFor="category" className="text-sm text-gray-300">
+        <div className="flex flex-col gap-2">
+          <label
+            htmlFor="category"
+            className="text-sm font-medium text-gray-400"
+          >
             Categoría
           </label>
 
@@ -93,13 +97,14 @@ export const CreateProduct = () => {
             value={form.category}
             onChange={handleChange}
             placeholder="Ej: Electrónica"
-            className="w-full p-2 rounded bg-[#1E1E1E]"
+            required
+            className="w-full p-3 rounded-lg bg-[#1E1E1E] border border-[#2A2A2A] focus:outline-none focus:ring-2 focus:ring-[#BB86FC]"
           />
         </div>
 
         {/* Stock */}
-        <div className="flex flex-col gap-1">
-          <label htmlFor="stock" className="text-sm text-gray-300">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="stock" className="text-sm font-medium text-gray-400">
             Stock Inicial
           </label>
 
@@ -111,13 +116,14 @@ export const CreateProduct = () => {
             value={form.stock}
             onChange={handleChange}
             placeholder="Ej: 5"
-            className="w-full p-2 rounded bg-[#1E1E1E]"
+            required
+            className="w-full p-3 rounded-lg bg-[#1E1E1E] border border-[#2A2A2A] focus:outline-none focus:ring-2 focus:ring-[#BB86FC]"
           />
         </div>
 
         {/* Precio */}
-        <div className="flex flex-col gap-1">
-          <label htmlFor="price" className="text-sm text-gray-300">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="price" className="text-sm font-medium text-gray-400">
             Precio
           </label>
 
@@ -130,14 +136,15 @@ export const CreateProduct = () => {
             value={form.price}
             onChange={handleChange}
             placeholder="Ej: 150000"
-            className="w-full p-2 rounded bg-[#1E1E1E]"
+            required
+            className="w-full p-3 rounded-lg bg-[#1E1E1E] border border-[#2A2A2A] focus:outline-none focus:ring-2 focus:ring-[#BB86FC]"
           />
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-[#BB86FC] hover:bg-[#9b6dfc] p-2 rounded font-bold"
+          className="w-full bg-[#BB86FC] hover:bg-[#9b6dfc] p-3 rounded-lg font-bold transition"
         >
           {loading ? "Creando..." : "Crear Producto"}
         </button>

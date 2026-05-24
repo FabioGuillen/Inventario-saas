@@ -32,9 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ sidebarOpen, setSidebarOpen }) => {
 
   return (
     <nav className="fixed top-0 left-0 w-full h-16 bg-[#1E1E1E] border-b border-[#2A2A2A] flex items-center justify-between px-3 md:px-6 z-50">
-      {/* LEFT */}
       <div className="flex items-center gap-2 md:gap-4">
-        {/* Sidebar toggle */}
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
           className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg bg-[#121212] hover:bg-[#2A2A2A] transition text-white"
@@ -42,7 +40,6 @@ const Navbar: React.FC<NavbarProps> = ({ sidebarOpen, setSidebarOpen }) => {
           {sidebarOpen ? <FaTimes /> : <FaBars />}
         </button>
 
-        {/* Logo */}
         <div
           onClick={() => navigate("/")}
           className="text-[#BB86FC] font-bold text-base md:text-lg cursor-pointer"
@@ -52,9 +49,6 @@ const Navbar: React.FC<NavbarProps> = ({ sidebarOpen, setSidebarOpen }) => {
         </div>
       </div>
 
-      {/* CENTER SEARCH */}
-
-      {/* RIGHT */}
       <div className="relative" ref={dropdownRef}>
         <button
           onClick={() => setOpen(!open)}

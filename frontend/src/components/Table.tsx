@@ -57,7 +57,7 @@ const Table = <T extends Record<string, any>>({
         </table>
       </div>
 
-      {/* ================= MOBILE ================= */}
+      {/* MOBILE */}
       <div className="md:hidden space-y-3">
         {data.length === 0 ? (
           <div className="text-center text-gray-400 py-6">

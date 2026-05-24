@@ -4,13 +4,12 @@ import prisma from "../config/prisma.js";
 interface ReportResponse {
   totalProducts: number;
   totalStock: number;
-  recentMovements: any[]; // puedes tiparlo mejor si quieres (te explico abajo)
+  recentMovements: any[];
   lowStock: any[];
 }
 
 const getReports = async (req: Request, res: Response) => {
   try {
-    // ✅ Ejecutar en paralelo (más eficiente)
     const [lowStock, totalProducts, totalStockResult, recentMovements] =
       await Promise.all([
         prisma.product.findMany({

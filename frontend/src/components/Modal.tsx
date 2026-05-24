@@ -12,9 +12,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
-      {/* Modal Container */}
       <div className="bg-[#1E1E1E] rounded-lg shadow-lg w-full max-w-md p-6 border border-[#373737]">
-        {/* Header */}
         <div className="flex justify-between items-center mb-4">
           {title && (
             <h2 className="text-lg font-semibold text-[#FFFFFF]">{title}</h2>
@@ -28,7 +26,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
           </button>
         </div>
 
-        {/* Content */}
         <div className="text-[#FFFFFF]">{children}</div>
       </div>
     </div>

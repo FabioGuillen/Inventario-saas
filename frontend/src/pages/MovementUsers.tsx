@@ -83,17 +83,15 @@ const MovementUsers = () => {
 
     return rows.sort(
       (a, b) =>
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
     );
   }, [data, filterUser, filterType, filterDate]);
-
-  //Kpis
 
   const kpis = useMemo(() => {
     const today = new Date();
 
     const todayMovements = data.filter(
-      (m) => new Date(m.createdAt).toDateString() === today.toDateString()
+      (m) => new Date(m.createdAt).toDateString() === today.toDateString(),
     );
 
     const totalIn = todayMovements
@@ -125,7 +123,6 @@ const MovementUsers = () => {
     return sorted[0] || ["-", 0];
   }, [filteredData]);
 
-  //Table
   const columns: Column<MovementUser>[] = [
     { header: "Usuario", accessor: "userName" },
     { header: "Email", accessor: "userEmail" },
@@ -155,7 +152,6 @@ const MovementUsers = () => {
 
   return (
     <div className="space-y-6">
-      {/* TITLE */}
       <div>
         <h1 className="text-2xl font-bold text-white">
           Auditoría de Movimientos
@@ -165,7 +161,6 @@ const MovementUsers = () => {
         </p>
       </div>
 
-      {/*KPI ROW */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-2xl p-4">
           <p className="text-gray-400 text-sm">Movimientos hoy</p>
@@ -183,9 +178,7 @@ const MovementUsers = () => {
         </div>
       </div>
 
-      {/*INSIGHT STRIPE*/}
       <div className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-2xl p-5 space-y-4">
-        {/* HEADER */}
         <div className="flex items-center justify-between">
           <h2 className="text-white font-semibold text-sm uppercase tracking-wide">
             Insights
@@ -196,9 +189,7 @@ const MovementUsers = () => {
           </span>
         </div>
 
-        {/* CONTENT GRID */}
         <div className="space-y-3">
-          {/* USER TOP */}
           <div className="flex items-center justify-between bg-[#121212] border border-[#2A2A2A] rounded-xl p-3">
             <div>
               <p className="text-gray-400 text-xs">Usuario más activo</p>
@@ -210,7 +201,6 @@ const MovementUsers = () => {
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
           </div>
 
-          {/* ACTIVITY */}
           <div className="flex items-center justify-between bg-[#121212] border border-[#2A2A2A] rounded-xl p-3">
             <div>
               <p className="text-gray-400 text-xs">Actividad total</p>
@@ -226,7 +216,6 @@ const MovementUsers = () => {
         </div>
       </div>
 
-      {/*FILTERS*/}
       <div className="grid md:grid-cols-3 gap-3 bg-[#1E1E1E] border border-[#2A2A2A] rounded-xl p-4">
         <select
           value={filterUser}
@@ -261,7 +250,6 @@ const MovementUsers = () => {
         </select>
       </div>
 
-      {/*TABLE*/}
       {loading ? <Loader /> : <Table columns={columns} data={filteredData} />}
     </div>
   );

@@ -72,7 +72,6 @@ const Users = () => {
 
   return (
     <div className="space-y-6">
-      {/* HEADER */}
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-white">Usuarios</h1>
 
@@ -85,7 +84,6 @@ const Users = () => {
         </Link>
       </div>
 
-      {/* TABLE DESKTOP */}
       <div className="hidden md:block bg-[#1E1E1E] rounded-xl border border-[#2A2A2A] overflow-hidden">
         <table className="w-full text-sm text-white">
           <thead className="bg-[#121212]">
@@ -132,7 +130,6 @@ const Users = () => {
         </table>
       </div>
 
-      {/* MOBILE */}
       <div className="md:hidden space-y-3">
         {users.map((u: any) => (
           <div
@@ -167,7 +164,6 @@ const Users = () => {
         ))}
       </div>
 
-      {/* MODAL */}
       {deleteId && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 px-4">
           <div className="bg-[#121212] border border-[#2A2A2A] rounded-2xl p-6 w-full max-w-md space-y-5 shadow-2xl">

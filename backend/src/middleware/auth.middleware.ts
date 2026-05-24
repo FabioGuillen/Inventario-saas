@@ -8,7 +8,6 @@ interface AuthPayload extends JwtPayload {
   role: string;
 }
 
-// Extender Request para incluir user
 export interface AuthRequest extends Request {
   user?: AuthPayload;
 }
@@ -16,7 +15,7 @@ export interface AuthRequest extends Request {
 export const verifyToken = (
   req: AuthRequest,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   try {
     const authHeader = req.headers.authorization;

@@ -40,7 +40,6 @@ export const login = async (req: Request, res: Response) => {
       return res.status(401).json({ error: "Credenciales inválidas" });
     }
 
-    // ✅ Token con payload mínimo (mejor práctica)
     const token = createAccessToken({
       id: user.id,
       role: { name: user.role.name },

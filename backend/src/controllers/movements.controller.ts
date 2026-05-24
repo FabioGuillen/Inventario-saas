@@ -1,7 +1,6 @@
 import type { Request, Response } from "express";
 import prisma from "../config/prisma.js";
 
-// Extender Request para incluir user
 interface AuthRequest extends Request {
   user?: {
     id: number;
@@ -36,7 +35,6 @@ export const createMovement = async (req: AuthRequest, res: Response) => {
       type: MovementType;
     };
 
-    // ✅ Validaciones correctas
     if (!productId || quantity == null || !type) {
       return res.status(400).json({ message: "Faltan campos requeridos" });
     }
@@ -68,7 +66,6 @@ export const createMovement = async (req: AuthRequest, res: Response) => {
       newStock -= quantity;
     }
 
-    // ✅ Crear movimiento
     const createdMovement = await prisma.movement.create({
       data: {
         productId,

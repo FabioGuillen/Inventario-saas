@@ -87,14 +87,11 @@ export default function Profile() {
 
   return (
     <div className="max-w-4xl mx-auto pb-10 space-y-6">
-      {/* HEADER */}
       <div className="bg-gradient-to-r from-[#1E1E1E] to-[#151515] rounded-3xl p-6 border border-[#2A2A2A] flex flex-col sm:flex-row sm:items-center gap-5">
-        {/* Avatar */}
         <div className="w-20 h-20 rounded-full bg-[#BB86FC] flex items-center justify-center text-3xl font-bold text-black shrink-0">
           {user.email?.charAt(0).toUpperCase()}
         </div>
 
-        {/* Info */}
         <div className="flex-1">
           <h1 className="text-2xl font-bold text-white break-all">
             {user.email}
@@ -108,14 +105,12 @@ export default function Profile() {
         </div>
       </div>
 
-      {/* INFO */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <InfoCard icon={<FaIdCard />} label="ID Usuario" value={user.id} />
         <InfoCard icon={<FaEnvelope />} label="Correo" value={user.email} />
         <InfoCard icon={<FaUserShield />} label="Rol" value={user.role} />
       </div>
 
-      {/* OWNER PANEL */}
       {isOwner && (
         <div className="space-y-4">
           <div>
@@ -162,7 +157,6 @@ export default function Profile() {
         </div>
       )}
 
-      {/* LOGOUT */}
       <button
         onClick={() => {
           logout();

@@ -29,13 +29,10 @@ const Dashboard: React.FC = () => {
         productName: p.name,
         category: p.category,
         price: p.price,
-      }))
+      })),
     );
   }, [report]);
 
-  /* 
-     Filtro por fecha
-  */
   const filteredMovements = useMemo(() => {
     const now = new Date();
 
@@ -66,12 +63,12 @@ const Dashboard: React.FC = () => {
 
   const totalStock = useMemo(
     () => report.reduce((acc, p) => acc + p.stock, 0),
-    [report]
+    [report],
   );
 
   const lowStockProducts = useMemo(
     () => report.filter((p) => p.stock <= 5),
-    [report]
+    [report],
   );
 
   const today = new Date();
@@ -83,7 +80,7 @@ const Dashboard: React.FC = () => {
 
         return date.toDateString() === today.toDateString();
       }),
-    [movements]
+    [movements],
   );
 
   const todaySales = useMemo(() => {
@@ -100,7 +97,6 @@ const Dashboard: React.FC = () => {
 
   const todayOut = todayMovements.filter((m) => m.type === "OUT").length;
 
-  //Charts Data
   const salesByDay = useMemo(() => {
     const data: Record<string, number> = {};
 
@@ -151,7 +147,6 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="space-y-8">
-      {/* HEADER */}
       <div>
         <h1 className="text-3xl font-bold text-white">Dashboard</h1>
 
@@ -160,7 +155,6 @@ const Dashboard: React.FC = () => {
         </p>
       </div>
 
-      {/* ALERTS */}
       <div className="grid md:grid-cols-3 gap-4">
         {critical > 0 && (
           <div className="bg-red-500/10 border border-red-500/30 text-red-300 p-4 rounded-xl flex items-center gap-2">
@@ -180,7 +174,6 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* CARDS */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card title="Productos" value={totalProducts} icon={<FaBox />} />
 
@@ -199,7 +192,6 @@ const Dashboard: React.FC = () => {
         />
       </div>
 
-      {/* CHARTS */}
       <div className="grid lg:grid-cols-2 gap-6">
         <ChartContainer title="Movimientos" type="bar" data={salesByDay} />
 
@@ -210,7 +202,6 @@ const Dashboard: React.FC = () => {
         />
       </div>
 
-      {/* LOW STOCK */}
       <div className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-2xl p-5">
         <h2 className="text-white font-semibold mb-3">
           Productos con bajo stock

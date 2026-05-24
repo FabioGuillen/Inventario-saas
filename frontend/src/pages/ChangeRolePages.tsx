@@ -45,7 +45,6 @@ export default function ChangeRolesPage() {
 
     if (!user) return;
 
-    // Si ya es owner no puede cambiarse directamente
     if (user.role === "owner" && role !== "owner") {
       notify.error("No puedes cambiar el rol del owner directamente.");
       return;
@@ -92,7 +91,6 @@ export default function ChangeRolesPage() {
         </button>
       </div>
 
-      {/* CONTENT */}
       {loading ? (
         <div className="text-center text-gray-400 py-10 animate-pulse">
           Cargando usuarios...
@@ -111,7 +109,6 @@ export default function ChangeRolesPage() {
                 key={user.id}
                 className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-2xl p-5 flex flex-col lg:flex-row lg:items-center justify-between gap-5"
               >
-                {/* LEFT */}
                 <div className="flex items-center gap-4 min-w-0">
                   <div
                     className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-black ${
@@ -135,8 +132,8 @@ export default function ChangeRolesPage() {
                         user.role === "owner"
                           ? "bg-yellow-400/20 text-yellow-300"
                           : user.role === "admin"
-                          ? "bg-blue-500/20 text-blue-300"
-                          : "bg-gray-500/20 text-gray-300"
+                            ? "bg-blue-500/20 text-blue-300"
+                            : "bg-gray-500/20 text-gray-300"
                       }`}
                     >
                       {user.role}
@@ -144,7 +141,6 @@ export default function ChangeRolesPage() {
                   </div>
                 </div>
 
-                {/* RIGHT */}
                 <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
                   <select
                     value={user.role}
@@ -152,25 +148,24 @@ export default function ChangeRolesPage() {
                       const newRole = e.target.value;
 
                       const ownersCount = users.filter(
-                        (u) => u.role === "owner"
+                        (u) => u.role === "owner",
                       ).length;
 
-                      // Si intenta sacar owner y solo queda uno
                       if (
                         user.role === "owner" &&
                         newRole !== "owner" &&
                         ownersCount === 1
                       ) {
                         notify.error(
-                          "No puedes cambiar este owner porque debe existir al menos un owner en el sistema."
+                          "No puedes cambiar este owner porque debe existir al menos un owner en el sistema.",
                         );
                         return;
                       }
 
                       setUsers((prev) =>
                         prev.map((u) =>
-                          u.id === user.id ? { ...u, role: newRole } : u
-                        )
+                          u.id === user.id ? { ...u, role: newRole } : u,
+                        ),
                       );
                     }}
                     className="bg-[#121212] border border-[#2A2A2A] text-white px-4 py-2 rounded-xl outline-none"
@@ -195,7 +190,6 @@ export default function ChangeRolesPage() {
         </div>
       )}
 
-      {/* FOOTER */}
       <div className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-2xl p-4 text-sm text-gray-400 flex items-center gap-3">
         <FaUsers className="text-[#BB86FC]" />
         Total usuarios: {users.length}

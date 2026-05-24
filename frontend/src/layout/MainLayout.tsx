@@ -8,10 +8,8 @@ const MainLayout = () => {
 
   return (
     <div className="flex min-h-screen bg-[#121212]">
-      {/* Sidebar */}
       <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
 
-      {/* Overlay mobile */}
       {sidebarOpen && (
         <div
           onClick={() => setSidebarOpen(false)}
@@ -19,7 +17,6 @@ const MainLayout = () => {
         />
       )}
 
-      {/* Content */}
       <div
         className={`
           flex flex-col flex-1 w-full transition-all duration-300 md:ml-64

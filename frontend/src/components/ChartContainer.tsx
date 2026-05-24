@@ -16,7 +16,7 @@ ChartJS.register(
   BarElement,
   Tooltip,
   Legend,
-  ArcElement
+  ArcElement,
 );
 
 interface ChartContainerProps {
@@ -37,12 +37,12 @@ const ChartContainer: React.FC<ChartContainerProps> = ({
       legend: {
         labels: {
           color: "#FFFFFF",
-          padding: 16, // 🔥 separa leyenda
+          padding: 16,
         },
       },
     },
     layout: {
-      padding: 12, // 🔥 espacio interno general
+      padding: 12,
     },
     scales:
       type === "bar"
@@ -61,10 +61,8 @@ const ChartContainer: React.FC<ChartContainerProps> = ({
 
   return (
     <div className="bg-[#1E1E1E] border border-[#373737] rounded-lg p-4 sm:p-6 w-full flex flex-col gap-4">
-      {/* TITLE */}
       <h3 className="text-white font-semibold text-sm sm:text-base">{title}</h3>
 
-      {/* CHART WRAPPER */}
       <div className="relative w-full  sm:h-[300px] md:h-[340px]">
         {type === "bar" && <Bar data={data} options={options} />}
         {type === "doughnut" && <Doughnut data={data} options={options} />}

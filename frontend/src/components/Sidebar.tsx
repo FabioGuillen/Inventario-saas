@@ -47,11 +47,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
           ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
         `}
       >
-        {/* 🔝 HEADER */}
         <div className="h-16 flex items-center justify-between px-4 border-b border-[#2A2A2A]">
           <span className="text-[#BB86FC] font-bold text-lg">Inventario</span>
 
-          {/* ❌ close button mobile */}
           <button
             onClick={() => setIsOpen(false)}
             className="md:hidden text-white text-xl"
@@ -60,7 +58,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
           </button>
         </div>
 
-        {/* MENU */}
         <nav className="flex flex-col gap-2 mt-6 px-3">
           {menuItems.map((item) => {
             const active = location.pathname === item.path;
@@ -69,7 +66,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
               <Link
                 key={item.name}
                 to={item.path}
-                onClick={() => setIsOpen(false)} // 👈 auto close mobile
+                onClick={() => setIsOpen(false)}
                 className={`
                   flex items-center gap-4 p-3 rounded-lg transition
 
@@ -87,7 +84,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
           })}
         </nav>
 
-        {/* USER */}
         <div className="mt-auto p-4 border-t border-[#2A2A2A]">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-[#BB86FC] flex items-center justify-center text-black font-bold">

@@ -15,7 +15,6 @@ const Button: React.FC<ButtonProps> = ({
   fullWidth = false,
   type = "button",
 }) => {
-  // Colores HEX según variante
   const baseClasses = `px-4 py-2 rounded-md font-semibold text-black transition-colors ${
     fullWidth ? "w-full" : "inline-block"
   }`;

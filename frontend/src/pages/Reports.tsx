@@ -19,7 +19,7 @@ const Reports: React.FC = () => {
         productName: p.name,
         category: p.category,
         price: p.price,
-      }))
+      })),
     );
   }, [report]);
 
@@ -79,7 +79,7 @@ const Reports: React.FC = () => {
     }, {});
 
     const bestCategory = Object.entries(topCategory).sort(
-      (a: any, b: any) => b[1] - a[1]
+      (a: any, b: any) => b[1] - a[1],
     )[0];
 
     return {
@@ -139,7 +139,6 @@ const Reports: React.FC = () => {
 
   return (
     <div className="space-y-8">
-      {/* HEADER */}
       <div>
         <h1 className="text-3xl font-bold text-white">Reportes</h1>
         <p className="text-gray-400 text-sm">
@@ -147,7 +146,6 @@ const Reports: React.FC = () => {
         </p>
       </div>
 
-      {/* FILTERS */}
       <div className="flex gap-2">
         {[
           { label: "Hoy", value: "today" },
@@ -168,7 +166,6 @@ const Reports: React.FC = () => {
         ))}
       </div>
 
-      {/* KPI GRID */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card
           title="Ganancias"
@@ -183,19 +180,14 @@ const Reports: React.FC = () => {
         <Card title="Salidas" value={kpis.outTotal} icon="products" />
       </div>
 
-      {/* INSIGHTS STRIPE STYLE */}
-      {/* PANEL DE INSIGHTS - ESTILO STRIPE */}
       <div className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-2xl p-6 space-y-5">
-        {/* CABECERA */}
         <div className="flex items-center justify-between">
           <h2 className="text-white font-semibold text-base">Insights</h2>
 
           <span className="text-xs text-gray-400">Análisis automático</span>
         </div>
 
-        {/* GRID DE INSIGHTS */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {/* MEJOR CATEGORÍA */}
           <div className="bg-[#121212] border border-[#2A2A2A] rounded-xl p-4">
             <p className="text-xs text-gray-400 mb-1">Mejor categoría</p>
 
@@ -208,7 +200,6 @@ const Reports: React.FC = () => {
             </div>
           </div>
 
-          {/* STOCK BAJO */}
           <div className="bg-[#121212] border border-[#2A2A2A] rounded-xl p-4">
             <p className="text-xs text-gray-400 mb-1">Riesgo de stock</p>
 
@@ -219,7 +210,6 @@ const Reports: React.FC = () => {
             <p className="text-xs text-red-400 mt-2">Requiere atención</p>
           </div>
 
-          {/* TENDENCIA */}
           <div className="bg-[#121212] border border-[#2A2A2A] rounded-xl p-4">
             <p className="text-xs text-gray-400 mb-1">Tendencia del negocio</p>
 
@@ -237,13 +227,11 @@ const Reports: React.FC = () => {
           </div>
         </div>
 
-        {/* PIE */}
         <div className="text-xs text-gray-300 border-t border-[#2A2A2A] pt-3">
           Datos generados automáticamente desde la actividad del inventario
         </div>
       </div>
 
-      {/* CHARTS */}
       <div className="grid lg:grid-cols-2 gap-6">
         <ChartContainer title="Actividad" type="bar" data={byDay} />
 
@@ -260,7 +248,6 @@ const Reports: React.FC = () => {
         data={stockByCategory}
       />
 
-      {/* TABLE */}
       <div className="bg-[#1E1E1E] border border-[#2A2A2A] rounded-2xl p-4">
         <h2 className="text-white font-semibold mb-3">
           Productos con Stock Bajo
