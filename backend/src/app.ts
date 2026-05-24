@@ -38,8 +38,5 @@ app.use("/products", productRoutes);
 app.use("/auth", authRoutes);
 app.use("/reports", reportRoutes);
 app.use("/movements", movementRoutes);
-app.get("/", (req, res) => {
-  res.send("API OK");
-});
 
 export default app;

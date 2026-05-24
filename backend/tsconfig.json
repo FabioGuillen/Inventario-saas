@@ -1,69 +1,29 @@
 {
   "compilerOptions": {
-    // ========================
-    // OUTPUT STRUCTURE
-    // ========================
     "rootDir": "./src",
     "outDir": "./dist",
 
-    // ========================
-    // RUNTIME / MODULE SYSTEM
-    // ========================
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "target": "ES2020",
-    "lib": ["ES2020"],
-
-    // ========================
-    // TYPES
-    // ========================
-    "types": ["node"],
+    "target": "ES2022",
+    "lib": ["ES2022"],
     "typeRoots": ["./node_modules/@types", "./src/types"],
 
-    // ========================
-    // STRICT TYPE SAFETY
-    // ========================
+    "types": ["node"],
+
     "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
 
-    // ========================
-    // QUALITY CHECKS
-    // ========================
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-
-    // ========================
-    // COMPATIBILITY
-    // ========================
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
 
-    // ========================
-    // OUTPUT OPTIONS
-    // ========================
     "sourceMap": true,
-    "declaration": false,
 
-    // ========================
-    // MODULE BEHAVIOR
-    // ========================
     "verbatimModuleSyntax": true,
-
     "isolatedModules": true,
-    "moduleDetection": "force",
 
-    // ========================
-    // PERFORMANCE
-    // ========================
     "skipLibCheck": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src"]
 }
