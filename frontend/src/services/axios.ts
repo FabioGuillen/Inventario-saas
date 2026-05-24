@@ -1,9 +1,6 @@
 import axios from "axios";
 const axiosIntances = axios.create({
-  baseURL: "http://localhost:8000",
-  headers: {
-    "Content-Type": "application/json",
-  },
+  baseURL: import.meta.env.VITE_API_URL,
 });
 axiosIntances.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
