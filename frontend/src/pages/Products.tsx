@@ -20,7 +20,7 @@ import { useAuthStore } from "../store/auth.store";
 
 import { notify } from "../utils/notify";
 
-import { FaPlus, FaSearch } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 
 const Products: React.FC = () => {
   const {
